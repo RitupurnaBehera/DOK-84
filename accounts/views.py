@@ -344,11 +344,11 @@ class AssignPermission(APIView):
             return Response({"message": "User with the provided username does not exist."},
                             status=status.HTTP_404_NOT_FOUND)
 
-        try:
-            content_type = ContentType.objects.get(model=model_name)
-        except ContentType.DoesNotExist:
-            return Response({"message": f"Model '{model_name}' does not exist."},
-                            status=status.HTTP_404_NOT_FOUND)
+        # try:
+        #     content_type = ContentType.objects.get(model=model_name)
+        # except ContentType.DoesNotExist:
+        #     return Response({"message": f"Model '{model_name}' does not exist."},
+        #                     status=status.HTTP_404_NOT_FOUND)
 
         permission_codename = f'can_change_{model_name}'
         try:
